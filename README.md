@@ -166,6 +166,3 @@ When VS Code is connected to the container, you can use the integrated terminal 
 - [GitHub: cjolowicz/hypermodern-python](https://github.com/cjolowicz/hypermodern-python)
 - [GitHub: Lee-W/cookiecutter-python-template](https://github.com/Lee-W/cookiecutter-python-template/tree/0.7.1)
 - [GitHub: dgoings/docker-dev-example](https://github.com/dgoings/docker-dev-example)
-- [Task](https://taskfile.dev/#/)
-
-
