@@ -89,6 +89,12 @@ RUN mkdir -p /home/$NB_USER/.jupyter/lab/user-settings/@jupyterlab/notebook-exte
 RUN inv --print-completion-script bash > ~/.invoke-completion.sh \
     && echo "source ~/.invoke-completion.sh" >> ~/.bashrc
 
+# Install Starship
+RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y \
+    && echo 'eval "$(starship init bash)"' >> ~/.bashrc \
+    && mkdir -p ~/.config \
+    && echo -e '[conda]\nsymbol = "Conda "\nignore_base = false' > ~/.config/starship.toml
+
 RUN fix-permissions /home/$NB_USER
 
 # Pluto port
