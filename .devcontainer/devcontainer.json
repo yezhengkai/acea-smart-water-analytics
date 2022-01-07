@@ -50,5 +50,6 @@
             "editor.formatOnSave": true,
             "editor.formatOnSaveMode": "file",
         },
+        "python.terminal.activateEnvironment": false
     }
 }
