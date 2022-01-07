@@ -1,0 +1,10 @@
+default_stages: [push]
+repos:
+  - repo: local
+    hooks:
+      - id: style-reformat
+        name: style-reformat
+        stages: [push]
+        language: system
+        pass_filenames: false
+        entry: inv style.reformat

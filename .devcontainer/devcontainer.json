@@ -1,0 +1,54 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
+{
+    "name": "acea-smart-water-analytics",
+    // ===== Use Docker Compose =====
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/home/jovyan/acea-smart-water-analytics",
+    // Add the IDs of extensions you want installed when the container is created in the array below.
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "julialang.language-julia",
+        "colinfang.markdown-julia",
+        "singularitti.vscode-julia-formatter",
+        "mutantdino.resourcemonitor",
+        "shardulm94.trailing-spaces",
+        "cliffordfajardo.hightlight-selections-vscode",
+        "wdawson.better-kill-ring",
+        "oderwat.indent-rainbow",
+        "github.vscode-pull-request-github",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "bungcip.better-toml",
+        "usernamehw.errorlens",
+        "ms-vscode.live-server",
+        "christian-kohler.path-intellisense",
+        "ms-python.python",
+        "editorconfig.editorconfig",
+        "shd101wyy.markdown-preview-enhanced",
+        "streetsidesoftware.code-spell-checker",
+        "gruntfuggly.todo-tree",
+    ],
+    "settings": {
+        "julia.environmentPath": "/home/jovyan/acea-smart-water-analytics",
+        "juliaFormatter.style": "blue",
+        "[julia]": {
+            "editor.defaultFormatter": "singularitti.vscode-julia-formatter",
+            // https://github.com/invenia/BlueStyle#vs-code-settings
+            "editor.detectIndentation": false,
+            "editor.insertSpaces": true,
+            "editor.tabSize": 4,
+            "files.insertFinalNewline": true,
+            "files.trimFinalNewlines": true,
+            "files.trimTrailingWhitespace": true,
+            "editor.rulers": [
+                92
+            ],
+            "editor.formatOnSave": true,
+            "editor.formatOnSaveMode": "file",
+        },
+    }
+}

@@ -1,0 +1,17 @@
+name = "SmartWaterAnalytics"
+uuid = "82f3509f-1cc7-4965-b6ad-3fa7662df669"
+authors = ["Zheng-Kai Ye <supon3060@gmail.com>"]
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DecisionTree = "7806a523-6efd-50cb-b5f6-3fa6f1930dbb"
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+MLJ = "add582a8-e3ab-11e8-2d5e-e98b27df1bc7"
+MLJDecisionTreeInterface = "c6f25543-311c-4c74-83dc-3ea6d1015661"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+ShiftedArrays = "1277b4bf-5013-50f5-be3d-901d8477a67a"
+
+[compat]
+julia = "1.6"
