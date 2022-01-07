@@ -128,7 +128,7 @@ Follow the instruction below to run container.
 
 
 ### Predefined Tasks
-> ⚠️ The predefined tasks defined in the `tasks` directory use relative paths, so make sure that the current working directory is **~/acea-smart-water-analytics**
+> ⚠️ The predefined tasks defined in the `tasks` directory use relative paths, so make sure that the current working directory is **acea-smart-water-analytics**
 
 When VS Code is connected to the container, you can use the integrated terminal (press **``ctrl+shift+` ``** to open terminal) to run following tasks.
 
