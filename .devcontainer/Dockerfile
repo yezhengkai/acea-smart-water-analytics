@@ -14,6 +14,7 @@ RUN apt-get update \
         sudo \
         curl \
         bash-completion \
+        lcov \
     && echo $NB_USER ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$NB_USER \
     && chmod 0440 /etc/sudoers.d/$NB_USER \
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
@@ -31,14 +32,19 @@ ARG PROJECT_DIR=/home/jovyan/julia-project
 WORKDIR $PROJECT_DIR
 
 # Add python packages and add invoke shell completion
-RUN conda install -y \
+RUN mamba install --quiet --yes \
         numpy=1.21 \
         pandas=1.3 \
         matplotlib=3.5 \
         scipy=1.7 \
         scikit-learn=1.0 \
         invoke=1.6 \
-        pre-commit=2.16
+        pre-commit=2.16 \
+        commitizen=2.20 \
+        dvc-s3=2.9 \
+        dvc-gdrive=2.9 \
+    && mamba clean --all -f -y \
+    && npm cache clean --force
 
 # Add julia packages and precompile
 RUN julia -e 'using Pkg; Pkg.update()' \
@@ -55,6 +61,7 @@ RUN julia -e 'using Pkg; Pkg.update()' \
                 PackageSpec(name="Pluto", version="0.17"), \
                 PackageSpec(name="PlutoUI", version="0.7"), \
                 PackageSpec(name="DaemonMode", version="0.1"), \
+                PackageSpec(name="LocalCoverage", version="0.2"), \
             ] \
         ) \
     ' \
@@ -85,9 +92,11 @@ RUN mkdir -p /home/$NB_USER/.jupyter/lab/user-settings/@jupyterlab/notebook-exte
     && echo '{"modal": false}' \
         >> /home/$NB_USER/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/palette.jupyterlab-settings
 
-# Shell completion
+# Shell completion and alias
 RUN inv --print-completion-script bash > ~/.invoke-completion.sh \
-    && echo "source ~/.invoke-completion.sh" >> ~/.bashrc
+    && echo "source ~/.invoke-completion.sh" >> ~/.bashrc \
+    && dvc completion -s bash | sudo tee /etc/bash_completion.d/dvc \
+    && echo -e "alias juliaclient='julia --startup-file=no -e \"using DaemonMode; runargs()\"'" >> ~/.bashrc
 
 # Install Starship
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y \
