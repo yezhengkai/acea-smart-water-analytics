@@ -8,3 +8,9 @@ repos:
         language: system
         pass_filenames: false
         entry: inv style.reformat
+      - id: test
+        name: test
+        stages: [push]
+        language: system
+        pass_filenames: false
+        entry: inv test
