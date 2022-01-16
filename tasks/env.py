@@ -4,15 +4,16 @@ from invoke import task
 @task
 def julia_daemon(ctx):
     """Run julia server, that is responsible for running all julia scripts."""
-    ctx.run("julia --project=@. --startup-file=no -e 'using Revise; using DaemonMode; serve()'", disown=True)
+    ctx.run("julia --project=@. -t auto --startup-file=no -e 'using Revise; using DaemonMode; serve(async=true)'", disown=True)
 
 @task
 def setup_pre_commit_hook(ctx):
-    """Setup pre-commit hook to automate check before git commit and git push."""
+    """Setup Git hooks with pre-commit."""
     ctx.run("git init")
     ctx.run("pre-commit install -t pre-commit")
     ctx.run("pre-commit install -t pre-push")
     ctx.run("pre-commit install -t commit-msg")
+    ctx.run("pre-commit install -t post-checkout")
 
 @task
 def julia_instantiate(ctx):
