@@ -18,11 +18,11 @@ Please note that we use docker to run containers, and **containers running on Wi
 1. Docker and Docker Compose
 1. VS Code
 
-If you are a **Windows** user, please install the additional tools.
+If you are a **Windows** user, please install additional tools **first**.
 1. Windows Terminal
 1. Windows Subsystem for Linux (WSL)
 
-Please refer to each section to install the necessary tools.
+See the following subsections **in order** to install or set up the necessary tools.
 
 ### Windows Terminal (Windows User)
 Download Windows Terminal from [here](https://www.microsoft.com/zh-tw/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab) to get a better terminal experience.
