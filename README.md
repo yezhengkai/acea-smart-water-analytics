@@ -5,6 +5,7 @@
 
 Practice the Julialang ML workflow using data from [Acea Smart Water Analytics](https://www.kaggle.com/c/acea-water-prediction/overview) competition.
 
+![workflow](workflow.svg)
 
 # How to Use
 This instruction is for **Ubuntu** and **Windows 10/11** user.
