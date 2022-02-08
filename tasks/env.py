@@ -4,7 +4,11 @@ from invoke import task
 @task
 def julia_daemon(ctx):
     """Run julia server, that is responsible for running all julia scripts."""
-    ctx.run("julia --project=@. -t auto --startup-file=no -e 'using Revise; using DaemonMode; serve(async=true)'", disown=True)
+    ctx.run(
+        "julia --project=@. -t auto --startup-file=no -e "
+        + "'using Revise; using DaemonMode; serve(async=true)'",
+        disown=True
+    )
 
 @task
 def setup_pre_commit_hook(ctx):
@@ -26,3 +30,6 @@ def init_dev(ctx, no_pre_commit=False):
     julia_instantiate(ctx)
     if not no_pre_commit:
         setup_pre_commit_hook(ctx)
+    ## Sync DVC
+    # ctx.run("dvc pull")
+    # ctx.run("dvc push")
